@@ -19,12 +19,22 @@ use PassGen; # Note that we cant address it as Crypt::PassGen yet
 # If this is difficult the module could contain the dictionary
 # since it is only about 200kB
 
-my $dictionary = "/usr/dict/words";
-die "Can not find default dictionary $dictionary. Please edit Makefile.PL"
-  unless -e $dictionary;
+# Look for /usr/dict/words and /usr/share/dict/words
+my $dictionary;
+my @dicts = qw| /usr/dict/words /usr/share/dict/words |;
+
+for (@dicts) {
+  if (-e $_) {
+    $dictionary = $_;
+    last;
+  }
+}
+
+die "Can not find a default dictionary. Please edit Makefile.PL"
+  unless defined $dictionary;
 
 $|=1;
-print "Generating letter frequency.....";
+print "Generating letter frequency from $dictionary .....";
 Crypt::PassGen::ingest(DICT => $dictionary,
 		       FILE => 'PassGenWordFreq.dat',
 		       APPEND => 0
