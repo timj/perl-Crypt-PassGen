@@ -6,7 +6,7 @@ Crypt::PassGen - Generate a random password that looks like a real word
 
 =head1 SYNOPSIS
 
-  use Crypt::PassGen;
+  use Crypt::PassGen qw/ passgen /;
 
   @passwords = passgen( NWORDS => 10, NLETT => 8 );
 

@@ -1,3 +1,7 @@
+2002-09-18  Tim Jenness  <timj@jach.hawaii.edu>
+
+	* PassGen.pm: Synopsis now correct [thanks to Florian Helmberger]
+
 2001-04-09  Tim Jenness  <timj@jach.hawaii.edu>
 
 	* Makefile.PL: Search in /usr/share  as well as /usr/ for default
