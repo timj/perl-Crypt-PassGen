@@ -1,3 +1,7 @@
+2003-11-28  Tim Jenness  <timj@jach.hawaii.edu>
+
+	* Release v0.04 to CPAN
+
 2002-11-13  Tim Jenness  <t.jenness@jach.hawaii.edu>
 
 	* PassGen.pm (_tot_to_index): Handle the case where no index
