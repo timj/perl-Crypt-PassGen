@@ -1,0 +1,5 @@
+2001-04-09  Tim Jenness  <timj@jach.hawaii.edu>
+
+	* Makefile.PL: Search in /usr/share  as well as /usr/ for default
+	dictionary.
+
