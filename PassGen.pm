@@ -39,7 +39,7 @@ use vars qw/ $VERSION @ISA @EXPORT_OK $DEFAULT_DICT $DEFAULT_FREQFILE
   $ERRSTR
   /;
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 use constant MAXN => 32000;
 require Exporter;
