@@ -1,3 +1,8 @@
+2002-11-13  Tim Jenness  <t.jenness@jach.hawaii.edu>
+
+	* PassGen.pm (_tot_to_index): Handle the case where no index
+	matches (ie the combination does not exist in the frequency file)
+
 2002-10-05  Tim Jenness  <t.jenness@jach.hawaii.edu>
 
 	* Release v0.03 to CPAN

@@ -314,7 +314,10 @@ sub _generate ($$) {
   my $n = 0;
   my $word;
 
-  while ($score < $minscore) {
+  WORDLOOP: while ($score < $minscore) {
+
+    # reset current score
+    $score = 0;
 
     # Keep track of the number of times around
     $n++;
@@ -326,6 +329,7 @@ sub _generate ($$) {
     # These calculations could all be prettified off into a sub
     # Now pick letters at random (starting with the first)
     my $ind = _tot_to_index(int(rand( $data->{FIRST_TOT} )), $data->{FIRST} );
+    next WORDLOOP if $ind < 0;
     $word = $revlett{ $ind };
     $score= $data->{FIRST}[ $ind ];
     my $prev1 = $ind;
@@ -333,6 +337,7 @@ sub _generate ($$) {
     # Now the second letter
     $ind = _tot_to_index( int(rand( $data->{SECOND_TOT}[$prev1] )),
 			  $data->{SECOND}[ $prev1 ]);
+    next WORDLOOP if $ind < 0;
     my $prev2 = $ind;
     $score += $data->{SECOND}[ $prev1 ][ $prev2 ];
     $word .= $revlett{ $ind };
@@ -341,6 +346,7 @@ sub _generate ($$) {
     for my $i ( 3.. $nlett ) {
       $ind = _tot_to_index( int(rand( $data->{PAIR_TOT}[$prev1][$prev2] )),
 			    $data->{THIRD}[$prev1][$prev2] );
+      next WORDLOOP if $ind < 0;
       $score += $data->{THIRD}[$prev1][$prev2][$ind];
       $word .= $revlett{ $ind };
       $prev1 = $prev2; # store the previous two letters
@@ -500,15 +506,21 @@ sub _calcminscore {
 
 # Arguments: Total, array ref to be searched
 # Returns: pos
+#          -1 if no index could be determined
 
 sub _tot_to_index {
   my ($tot, $arr) = @_;
   my $i=0;
-  while ($tot >= 0) {
+  while ($tot >= 0 && $i <= $#$arr) {
     $tot -= $arr->[ $i ];
 #    print "Tot now: $tot\t $i ",$revlett{$i}," ",$arr->[$i],"\n";
     $i++;
   }
+
+  # if we are still >= 0 we could not match an index
+  return -1 if $tot >= 0;
+
+  # Found a valid index
   return --$i;
 }
 
