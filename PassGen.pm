@@ -34,12 +34,13 @@ the frequency table.
 use integer;
 use strict;
 use Storable qw/ nstore retrieve /;
+use File::Spec;
 use Config;
 use vars qw/ $VERSION @ISA @EXPORT_OK $DEFAULT_DICT $DEFAULT_FREQFILE 
   $ERRSTR
   /;
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 use constant MAXN => 32000;
 require Exporter;
@@ -51,7 +52,10 @@ require Exporter;
 # module [use Config]
 
 $DEFAULT_DICT = '/usr/dict/words';  # Unix specific
-$DEFAULT_FREQFILE = "$Config{installsitelib}/Crypt/PassGenWordFreq.dat";
+
+$DEFAULT_FREQFILE = File::Spec->catfile($Config{installsitelib},
+					"Crypt",
+					"PassGenWordFreq.dat");
 
 # This is the cache of frequency data to prevent us going to
 # disk each time passgen() is called. This effectively means
@@ -365,7 +369,7 @@ sub _storedata ($$) {
 }
 
 # Read the data
-# Argumnts:  filename
+# Arguments:  filename
 # Returns :  the data (undef on error)
 # The data is a hash with keys FIRST, SECOND, THIRD
 # The data is cached to prevent reading the frequency

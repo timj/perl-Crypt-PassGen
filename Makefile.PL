@@ -47,9 +47,9 @@ WriteMakefile(
 	      'NAME'      => 'Crypt::PassGen',
 	      'VERSION_FROM'   => 'PassGen.pm',
 	      'PREREQ_PM' => {
-			      'Test' => undef,
-			      'Storable' => undef,
-			      'File::Spec' => undef,
+			      'Test' => 0,
+			      'Storable' => 0,
+			      'File::Spec' => 0,
 			     },
 	      'PM'        => {
 			      'PassGenWordFreq.dat' => '$(INST_LIBDIR)/PassGenWordFreq.dat',

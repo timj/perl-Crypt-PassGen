@@ -24,7 +24,7 @@ frequency table can be constructed. On non-unix systems it might
 be easier simply to include a dictionary for this within the
 distribution. 
 
-Also requires the Storable module
+Also requires the Storable module.
 
 Installation
 ------------
@@ -50,7 +50,7 @@ Mike Bartman of SAR, Inc as part of the SPAN security toolkit in 1989.
 Status
 ------
 
-This is the first release of this module. It has not been tested
+This is an early release of this module. It has not been tested
 extensively and must be considered in alpha release. 
 
 Author
