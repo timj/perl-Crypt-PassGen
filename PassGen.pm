@@ -422,7 +422,7 @@ sub _scale_second_down {
 
 # Divide everything in a 3-D array by 2.0
 
-sub _scale_third_down {
+sub _scale_thirds_down {
   use integer;
   my $arr = shift;
   for my $i (@$arr) {
