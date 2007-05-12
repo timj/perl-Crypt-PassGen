@@ -1,3 +1,8 @@
+2005-11-30 Tim Jenness <tjenness@cpan.org>
+
+	* Fix typo in call to _scale_thirds_down() [thanks to vijay on 
+	annocpan]
+
 2003-11-28  Tim Jenness  <timj@jach.hawaii.edu>
 
 	* Release v0.04 to CPAN
