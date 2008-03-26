@@ -410,7 +410,7 @@ sub _scale_first_down {
 
 # Divide everything in a 2-D array by 2
 
-sub _scale_second_down {
+sub _scale_seconds_down {
   use integer;
   my $arr = shift;
   for my $i (@$arr) {

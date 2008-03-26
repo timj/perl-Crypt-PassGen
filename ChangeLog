@@ -1,3 +1,9 @@
+2008-03-25  Tim Jenness  <tjenness@cpan.org>
+
+	* Release v0.05 to CPAN
+	
+	* PassGen.pm (ingest): Fix typo in _scale_seconds_down [thanks to imacat]
+
 2005-11-30 Tim Jenness <tjenness@cpan.org>
 
 	* Fix typo in call to _scale_thirds_down() [thanks to vijay on 
