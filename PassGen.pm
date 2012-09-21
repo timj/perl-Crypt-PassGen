@@ -314,7 +314,7 @@ sub _generate ($$) {
   my $n = 0;
   my $word;
 
-  WORDLOOP: while ($score < $minscore) {
+  WORDLOOP: while ($score < $minscore || length($word) < $nlett) {
 
     # reset current score
     $score = 0;
